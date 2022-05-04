@@ -3,7 +3,7 @@
 #### You should to create a virtual keyboard like this:
 ![screenshot](images/virtual-keyboard.png)
 
-### Functional requirements:
+### Functional requirements :
 - design is at your discretion.
 - `index.html` file should be empty (all the necessary elements are generated with the usage of JS)
 - pressing a key on a physical keyboard highlights the key on the virtual keyboard:
