@@ -1,0 +1,141 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./../../assets/fonts/HelveticaNeueCyr-Light.ttf");
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #212529;
+  background-color: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container-text-keyboard {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.rows {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.first-row li {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #b5b5b5;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  cursor: pointer;
+  height: 40px;
+  background: #fff;
+  margin-right: 5px;
+}
+.first-row li:last-of-type {
+  margin-right: 0;
+}
+
+.first-row li span {
+  font-size: 15px;
+}
+
+.space {
+  width: 150px;
+}
+
+.arrow-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  margin-left: 5px;
+}
+.arrow-container li {
+  height: 17.5px;
+  width: 30%;
+}
+
+.caseUp {
+  margin-bottom: 5px;
+}
+
+.arrow {
+  display: flex;
+  width: 100%;
+}
+.arrow li {
+  height: 17.5px;
+  width: 33%;
+}
+
+.text-area-container {
+  background: #2e2e2e;
+  border: 20px solid rgba(0, 0, 0, 0.1);
+  height: 200px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.input {
+  color: hsla(0deg, 0%, 100%, 0.9);
+  background: 0 0;
+  border: none;
+  outline: 0;
+  font-family: monospace;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+}
+
+.keyboard-container {
+  margin: 0 auto;
+  background-color: #ececec;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 5px;
+  touch-action: manipulation;
+  width: 50%;
+}
+
+/*# sourceMappingURL=main.css.map */

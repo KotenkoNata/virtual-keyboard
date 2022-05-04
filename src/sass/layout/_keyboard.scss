@@ -1,0 +1,10 @@
+.keyboard-container{
+  margin: 0 auto;
+  background-color: $light-gray;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 5px;
+  touch-action: manipulation;
+  width: 50%;
+}

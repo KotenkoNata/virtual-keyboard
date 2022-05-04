@@ -1,0 +1,66 @@
+.rows{
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.first-row li{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+
+  align-items: center;
+
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  border-bottom: 1px solid $dark-gray;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+
+  cursor: pointer;
+  height: 40px;
+  background: $white;
+  margin-right: 5px;
+
+  &:last-of-type{
+    margin-right: 0;
+  }
+
+}
+
+.first-row li span{
+  font-size: 15px;
+}
+
+.space{
+  width: 150px;
+}
+
+.arrow-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+
+  margin-left: 5px;
+
+  & li{
+    height: 17.5px;
+    width: 30%;
+  }
+}
+
+.caseUp{
+  margin-bottom: 5px;
+}
+
+.arrow{
+  display: flex;
+  width: 100%;
+
+  & li{
+    height: 17.5px;
+    width: 33%;
+  }
+}
+
