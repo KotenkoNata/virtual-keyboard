@@ -51,7 +51,7 @@ a {
   margin-bottom: 5px;
 }
 
-.first-row li {
+.rows li {
   display: flex;
   justify-content: center;
   flex-grow: 1;
@@ -66,11 +66,15 @@ a {
   background: #fff;
   margin-right: 5px;
 }
-.first-row li:last-of-type {
+.rows li:last-of-type {
   margin-right: 0;
 }
 
-.first-row li span {
+.last-row {
+  margin-bottom: 0;
+}
+
+.rows li span {
   font-size: 15px;
 }
 
@@ -136,6 +140,11 @@ a {
   padding: 5px;
   touch-action: manipulation;
   width: 50%;
+}
+
+.description {
+  margin-top: 40px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */

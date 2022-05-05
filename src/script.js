@@ -175,7 +175,7 @@ body.insertAdjacentHTML('beforeend', '<div class="container">'
   + '<span class="">shift</span>'
   + '</li>'
   + '</ul>'
-  + '<ul class="first-row rows">'
+  + '<ul class="first-row last-row rows">'
   + '<li>'
   + '<span class="">fn</span>'
   + '</li>'
@@ -216,4 +216,164 @@ body.insertAdjacentHTML('beforeend', '<div class="container">'
   + '</ul>'
   + '</div>'
   + '</div>'
+  + '</div>'
+  + '<div class="description">'
+  + '<p>Keyboard was created for macOS</p>'
+  + '<p>Switch between languages: command (⌘) + space</p>'
   + '</div>');
+
+document.addEventListener('keydown', (event) => {
+  console.log(event.code);
+  console.log(event.key);
+});
+
+const keyboard = {
+  elements: {
+    textarea: null,
+    main: null,
+    keysContainer: null,
+    keys: [],
+  },
+
+  eventHandlers: {
+    oninput: null,
+    onclose: null,
+  },
+
+  properties: {
+    value: '',
+    capsLock: false,
+  },
+
+  init() {
+    // Create main elements
+    this.elements.main = document.createElement('div');
+    this.elements.textarea = document.createElement('div');
+    this.elements.textarea.insertAdjacentHTML('beforeend', '<div class="text-area-container">'
+      + '<textarea placeholder="Tap to start" class="input"></textarea>'
+      + '</div>');
+    this.elements.keysContainer = document.createElement('div');
+
+    // Setup main elements
+    this.elements.main.appendChild(this.elements.textarea);
+    this.elements.textarea.appendChild(this.elements.keysContainer);
+    this.elements.keysContainer.appendChild(this.createKeys());
+
+    this.elements.main.classList.add('container');
+    this.elements.textarea.classList.add('container-text-keyboard');
+    this.elements.keysContainer.classList.add('keyboard-container');
+
+    // Add to DOM
+    this.elements.main.insertAdjacentHTML('afterbegin', '<h1>Virtual keyboard</h1>');
+    document.body.appendChild(this.elements.main);
+    body.insertAdjacentHTML('beforeend', '<div class="description">'
+      + '<p>Keyboard was created for macOS</p>'
+      + '<p>Switch between languages: command (⌘) + space</p>'
+      + '</div>');
+  },
+  createKeys() {
+    const fragment = document.createDocumentFragment();
+    const keyLayoutEn = [
+      ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete'],
+      ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
+      ['caps lock', ' a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'return'],
+      ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
+      ['fn', '⌃', '⌥', '⌘', 'space', '⌘', '⌥', '▲', '◀', '▼', '▶'],
+    ];
+
+    keyLayoutEn.forEach((key) => {
+      const ulElement = document.createElement('ul');
+
+      ulElement.classList.add('rows');
+
+      key.forEach((element) => {
+        const liElement = document.createElement('li');
+        const spanElement = document.createElement('span');
+
+        liElement.appendChild(spanElement);
+
+        if (element === '▲') {
+          liElement.classList.add('top-arrow');
+        }
+        if (element === '◀') {
+          liElement.classList.add('left-arrow');
+        }
+        if (element === '▼') {
+          liElement.classList.add('bottom-arrow');
+        }
+        if (element === '▶') {
+          liElement.classList.add('right-arrow');
+        }
+
+        switch (element) {
+          case 'backspace':
+            spanElement.addEventListener('click', () => {
+              this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
+              this._triggerEvent('oninput');
+            });
+
+            break;
+
+          case 'caps':
+            spanElement.addEventListener('click', () => {
+              this._toggleCapsLock();
+              spanElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
+            });
+
+            break;
+
+          case 'enter':
+            spanElement.addEventListener('click', () => {
+              this.properties.value += '\n';
+              this._triggerEvent('oninput');
+            });
+
+            break;
+
+          case 'space':
+
+            spanElement.addEventListener('click', () => {
+              this.properties.value += ' ';
+              this._triggerEvent('oninput');
+            });
+
+            break;
+
+          default:
+            spanElement.textContent = element.toLowerCase();
+            spanElement.addEventListener('click', () => {
+              this.properties.value += this.properties.capsLock ? element.toUpperCase() : element.toLowerCase();
+              this._triggerEvent('oninput');
+            });
+
+            break;
+        }
+
+        ulElement.appendChild(liElement);
+      });
+      fragment.appendChild(ulElement);
+    });
+    return fragment;
+  },
+
+  _triggerEvent(handlerName) {
+    console.log(`Test${handlerName}`);
+  },
+
+  _toggleCapsLock() {
+    console.log('CapsLock toggle');
+  },
+
+  open(initial, oninput, onclose) {
+
+  },
+
+  close() {
+
+  },
+
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  keyboard.init();
+});

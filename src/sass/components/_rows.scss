@@ -3,7 +3,7 @@
   margin-bottom: 5px;
 }
 
-.first-row li{
+.rows li{
   display: flex;
   justify-content: center;
   flex-grow: 1;
@@ -24,10 +24,13 @@
   &:last-of-type{
     margin-right: 0;
   }
-
 }
 
-.first-row li span{
+.last-row{
+  margin-bottom: 0;
+}
+
+.rows li span{
   font-size: 15px;
 }
 
