@@ -75,11 +75,11 @@ a {
   margin-right: 0;
 }
 .rows li:hover {
-  background-color: #385170;
+  background-color: #212529;
   color: white;
 }
 .rows li.active {
-  background-color: #385170;
+  background-color: #212529;
   color: white;
 }
 
@@ -121,11 +121,11 @@ a {
   width: 33%;
 }
 
-.capslock {
+.CapsLock {
   position: relative;
   font-size: 10px;
 }
-.capslock::after {
+.CapsLock::after {
   content: "";
   top: 5px;
   left: 15px;
@@ -136,7 +136,7 @@ a {
   border-radius: 50%;
 }
 
-.capsLock-active.capslock::after {
+.capsLock-active.CapsLock::after {
   background: rgba(0, 128, 0, 0.6);
 }
 

@@ -34,12 +34,12 @@
   }
 
   &:hover{
-    background-color: #385170;
+    background-color: $black;
     color: white;
   }
 
   &.active{
-    background-color: #385170;
+    background-color: $black;
     color: white;
   }
 }
@@ -87,7 +87,7 @@
 
 
 
-.capslock{
+.CapsLock{
   position: relative;
   font-size: 10px;
 
@@ -103,7 +103,7 @@
   }
 }
 
-.capsLock-active.capslock::after{
+.capsLock-active.CapsLock::after{
   background: rgba(0, 128, 0, 0.6);
 }
 
