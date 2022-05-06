@@ -35,60 +35,60 @@ const keyLayout = [
         en: '4',
       },
     }, {
-    code: 'Digit5',
-    layouts: {
-      rus: '%',
-      en: '5',
-    },
-  }, {
-    code: 'Digit6',
-    layouts: {
-      rus: ':',
-      en: '6',
-    },
-  }, {
-    code: 'Digit7',
-    layouts: {
-      rus: '?',
-      en: '7',
-    },
-  }, {
-    code: 'Digit8',
-    layouts: {
-      rus: '*',
-      en: '8',
-    },
-  }, {
-    code: 'Digit9',
-    layouts: {
-      rus: '(',
-      en: '9',
-    },
-  }, {
-    code: 'Digit0',
-    layouts: {
-      rus: ')',
-      en: '0',
-    },
-  }, {
-    code: 'Minus',
-    layouts: {
-      rus: '_',
-      en: '-',
-    },
-  }, {
-    code: 'Equal',
-    layouts: {
-      rus: '+',
-      en: '=',
-    },
-  }, {
-    code: 'Backspace',
-    layouts: {
-      rus: 'delete',
-      en: 'delete',
-    },
-  }],
+      code: 'Digit5',
+      layouts: {
+        rus: '%',
+        en: '5',
+      },
+    }, {
+      code: 'Digit6',
+      layouts: {
+        rus: ':',
+        en: '6',
+      },
+    }, {
+      code: 'Digit7',
+      layouts: {
+        rus: '?',
+        en: '7',
+      },
+    }, {
+      code: 'Digit8',
+      layouts: {
+        rus: '*',
+        en: '8',
+      },
+    }, {
+      code: 'Digit9',
+      layouts: {
+        rus: '(',
+        en: '9',
+      },
+    }, {
+      code: 'Digit0',
+      layouts: {
+        rus: ')',
+        en: '0',
+      },
+    }, {
+      code: 'Minus',
+      layouts: {
+        rus: '_',
+        en: '-',
+      },
+    }, {
+      code: 'Equal',
+      layouts: {
+        rus: '+',
+        en: '=',
+      },
+    }, {
+      code: 'Backspace',
+      layouts: {
+        rus: 'delete',
+        en: 'delete',
+      },
+    }],
   [{
     code: 'Tab',
     layouts: {
@@ -361,30 +361,6 @@ const keyLayout = [
     layouts: {
       rus: '⌥',
       en: '⌥',
-    },
-  }, {
-    code: 'ArrowUp',
-    layouts: {
-      rus: '▲',
-      en: '▲',
-    },
-  }, {
-    code: 'ArrowLeft',
-    layouts: {
-      rus: '◀',
-      en: '◀',
-    },
-  }, {
-    code: 'ArrowDown',
-    layouts: {
-      rus: '▼',
-      en: '▼',
-    },
-  }, {
-    code: 'ArrowRight',
-    layouts: {
-      rus: '▶',
-      en: '▶',
     },
   }],
 ];

@@ -45,9 +45,7 @@ const keyboard = {
       + '<p>Switch between languages: command (⌘) + space</p>'
       + '</div>');
 
-    // Automatically use keyboard for elements with .input
-
-    this.inputField = document.querySelectorAll('.input')[0]
+    this.inputField = document.querySelectorAll('.input')[0];
   },
   createKeys() {
     const fragment = document.createDocumentFragment();
@@ -62,6 +60,10 @@ const keyboard = {
 
         if (isSpecial(element)) {
           liElement.classList.add('special');
+        }
+
+        if(element.layouts.en === 'space') {
+          liElement.classList.add('space');
         }
 
         switch (element.layouts.en) {
@@ -80,7 +82,7 @@ const keyboard = {
             break;
 
           case 'space':
-            liElement.classList.add('space');
+
             //
             // liElement.addEventListener('click', () => {
             //   this.properties.value += ' ';
@@ -93,7 +95,7 @@ const keyboard = {
 
             liElement.classList.add(`${element.code}`);
 
-            liElement.dataset.key = element.code
+            liElement.dataset.key = element.code;
 
             // liElement.addEventListener('click', () => {
             //   this.properties.value += this.properties.capsLock ? element.layouts.en.toUpperCase() : element.layouts.en.toLowerCase();
@@ -128,11 +130,11 @@ const keyboard = {
   },
 
   handleKeyPress() {
-    document.querySelectorAll('.keyboard-container .rows li').forEach(element => {
+    document.querySelectorAll('.keyboard-container .rows li').forEach((element) => {
       element.addEventListener('click', (event) => {
         if (!element.classList.contains('special')) {
           const layout = findLayoutByLi(event.target);
-          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout)
+          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
         }
       });
     });
@@ -140,12 +142,9 @@ const keyboard = {
       const array = this.elements.keys;
       array.forEach((key) => {
         if (key.classList.contains(event.code)) {
-
           key.classList.add('active');
-
           const layout = findLayoutByLi(key);
-
-          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout)
+          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
         }
       });
     });
@@ -163,12 +162,6 @@ const keyboard = {
       });
     });
   },
-
-  updateTextarea() {
-    // const textArea = document.querySelectorAll('.input');
-    //
-    // console.log(textArea.value = this.properties.value);
-  }
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -176,5 +169,4 @@ window.addEventListener('DOMContentLoaded', () => {
   keyboard.keyBehavior();
   keyboard.handleKeyPress();
   keyboard.handleKeyDown();
-  keyboard.updateTextarea();
 });
