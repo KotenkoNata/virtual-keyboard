@@ -263,6 +263,8 @@ const keyboard = {
     this.elements.textarea.classList.add('container-text-keyboard');
     this.elements.keysContainer.classList.add('keyboard-container');
 
+    this.elements.keys = this.elements.keysContainer.querySelectorAll('li');
+
     // Add to DOM
     this.elements.main.insertAdjacentHTML('afterbegin', '<h1>Virtual keyboard</h1>');
     document.body.appendChild(this.elements.main);
@@ -276,7 +278,7 @@ const keyboard = {
     const keyLayoutEn = [
       ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete'],
       ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
-      ['caps lock', ' a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'return'],
+      ['caps lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'return'],
       ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
       ['fn', '⌃', '⌥', '⌘', 'space', '⌘', '⌥', '▲', '◀', '▼', '▶'],
     ];
@@ -314,10 +316,10 @@ const keyboard = {
 
             break;
 
-          case 'caps':
-            spanElement.addEventListener('click', () => {
+          case 'caps lock':
+            liElement.addEventListener('click', () => {
               this._toggleCapsLock();
-              spanElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
+              liElement.classList.toggle('keyboard__key--active', this.properties.capsLock);
             });
 
             break;
@@ -331,6 +333,7 @@ const keyboard = {
             break;
 
           case 'space':
+            spanElement.classList.add('space');
 
             spanElement.addEventListener('click', () => {
               this.properties.value += ' ';
@@ -357,11 +360,17 @@ const keyboard = {
   },
 
   _triggerEvent(handlerName) {
-    console.log(`Test${handlerName}`);
+    if (typeof this.eventHandlers[handlerName] === 'function') {
+      this.eventHandlers[handlerName](this.properties.value);
+    }
   },
 
-  _toggleCapsLock() {
-    console.log('CapsLock toggle');
+  _toggleCapsLock: function () {
+    this.properties.capsLock = !this.properties.capsLock;
+    for (const key of this.elements.keys) {
+      key.textContent = this.properties.capsLock ? key.textContent.toUpperCase()
+        : key.textContent.toLowerCase();
+    }
   },
 
   open(initial, oninput, onclose) {
