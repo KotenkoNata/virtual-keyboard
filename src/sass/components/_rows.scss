@@ -1,6 +1,11 @@
 .rows{
   display: flex;
   margin-bottom: 5px;
+
+  & .special{
+    font-size: 10px;
+    align-items: end;
+  }
 }
 
 .rows li{
@@ -20,9 +25,22 @@
   height: 40px;
   background: $white;
   margin-right: 5px;
+  transition: all 200ms ease-in-out;
+
+
 
   &:last-of-type{
     margin-right: 0;
+  }
+
+  &:hover{
+    background-color: #385170;
+    color: white;
+  }
+
+  &.active{
+    background-color: #385170;
+    color: white;
   }
 }
 
@@ -30,7 +48,7 @@
   margin-bottom: 0;
 }
 
-.rows li span{
+.rows li{
   font-size: 15px;
 }
 
@@ -66,4 +84,30 @@
     width: 33%;
   }
 }
+
+
+
+.capslock{
+  position: relative;
+  font-size: 10px;
+
+  &::after{
+    content: '';
+    top: 5px;
+    left: 15px;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: $black;
+    border-radius: 50%;
+  }
+}
+
+.capsLock-active.capslock::after{
+  background: rgba(0, 128, 0, 0.6);
+}
+
+
+
+
 
