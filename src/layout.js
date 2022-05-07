@@ -399,8 +399,8 @@ const keyLayout = [
     {
       code: 'Space',
       layouts: {
-        rus: 'space',
-        en: 'space',
+        rus: ' ',
+        en: ' ',
       },
     },
     {

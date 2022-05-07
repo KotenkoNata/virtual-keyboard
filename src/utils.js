@@ -77,3 +77,11 @@ function handleKeyAndTextarea(currentTextValue, keyLayout, isCapsEnabled) {
   }
   return currentTextValue + nextChar;
 }
+
+function setLangLocalStorage(lang) {
+  localStorage.setItem('lang', `${lang}`);
+}
+
+function getLangLocalStorage() {
+  return localStorage.getItem('lang');
+}
