@@ -15,6 +15,7 @@ const keyLayout = [
     },
     {
       code: 'Digit1',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '1',
@@ -28,6 +29,7 @@ const keyLayout = [
     },
     {
       code: 'Digit2',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '2',
@@ -41,6 +43,7 @@ const keyLayout = [
     },
     {
       code: 'Digit3',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '3',
@@ -54,6 +57,7 @@ const keyLayout = [
     },
     {
       code: 'Digit4',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '4',
@@ -67,6 +71,7 @@ const keyLayout = [
     },
     {
       code: 'Digit5',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '5',
@@ -80,6 +85,7 @@ const keyLayout = [
     },
     {
       code: 'Digit6',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '6',
@@ -93,6 +99,7 @@ const keyLayout = [
     },
     {
       code: 'Digit7',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '7',
@@ -106,6 +113,7 @@ const keyLayout = [
     },
     {
       code: 'Digit8',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '8',
@@ -119,6 +127,7 @@ const keyLayout = [
     },
     {
       code: 'Digit9',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '9',
@@ -132,6 +141,7 @@ const keyLayout = [
     },
     {
       code: 'Digit0',
+      isDigit: true,
       layouts: {
         rus: {
           lower: '0',

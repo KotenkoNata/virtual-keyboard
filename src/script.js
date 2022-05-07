@@ -86,9 +86,24 @@ const keyboard = {
     this.properties.capsLock = !this.properties.capsLock;
     for (const li of this.elements.keys) {
       const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
-      li.textContent = this.properties.capsLock
-        ? c.layouts[this.properties.language].upper
-        : c.layouts[this.properties.language].lower;
+
+      if (this.properties.capsLock && !c.isDigit) {
+        li.textContent = c.layouts[this.properties.language].upper;
+      } else if (!this.properties.capsLock) {
+        li.textContent = c.layouts[this.properties.language].lower;
+      }
+    }
+  },
+
+  _toggleShift() {
+    this.properties.capsLock = !this.properties.capsLock;
+    for (const li of this.elements.keys) {
+      const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
+      if (this.properties.capsLock) {
+        li.textContent = c.layouts[this.properties.language].upper;
+      } else if (!this.properties.capsLock) {
+        li.textContent = c.layouts[this.properties.language].lower;
+      }
     }
   },
 
@@ -120,7 +135,7 @@ const keyboard = {
       element.addEventListener('click', (event) => {
         const layout = findLayoutByLi(event.target);
         if (layout.code === 'ShiftLeft' || layout.code === 'ShiftRight') {
-          this._toggleCapsLock();
+          this._toggleShift();
         }
         this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock, this.properties.language);
       });
@@ -146,7 +161,7 @@ const keyboard = {
       array.forEach((li) => {
         if (li.classList.contains(event.code)) {
           if (li.dataset.key === 'ShiftLeft' || li.dataset.key === 'ShiftRight') {
-            this._toggleCapsLock();
+            this._toggleShift();
           }
           li.classList.add('active');
           const layout = findLayoutByLi(li);
@@ -162,7 +177,7 @@ const keyboard = {
       event.preventDefault();
       const array = this.elements.keys;
       if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-        self._toggleCapsLock();
+        self._toggleShift();
       }
       const keyButton = [...array]
         .filter((li) => li.dataset.key === event.code)[0];
