@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const body = document.querySelector('#body');
 
 const keyboard = {
@@ -16,7 +17,7 @@ const keyboard = {
     language: 'en',
   },
 
-  init() {
+  render() {
     // Create main elements
     this.elements.main = document.createElement('div');
     this.elements.textarea = document.createElement('div');
@@ -30,7 +31,7 @@ const keyboard = {
     // Setup main elements
     this.elements.main.appendChild(this.elements.textarea);
     this.elements.textarea.appendChild(this.elements.keysContainer);
-    this.elements.keysContainer.appendChild(this.createKeys());
+    this.elements.keysContainer.appendChild(this.renderKeys());
 
     this.elements.main.classList.add('container');
     this.elements.textarea.classList.add('container-text-keyboard');
@@ -41,42 +42,42 @@ const keyboard = {
     // Add to DOM
     this.elements.main.insertAdjacentHTML('afterbegin', '<h1>Virtual keyboard</h1>');
     document.body.appendChild(this.elements.main);
-    body.insertAdjacentHTML('beforeend', '<div class="description">'
-      + '<p>Keyboard was created for macOS</p>'
-      + '<p>Switch between languages: command (⌘) + space</p>'
-      + '</div>');
+    body.insertAdjacentHTML('beforeend', `
+        <div class="description">
+            <p>Keyboard was created for macOS</p>
+            <p>Switch between languages: command (⌘) + space</p>
+        </div>
+    `);
 
     this.inputField = document.querySelectorAll('.input')[0];
   },
-  createKeys() {
+
+  renderKeys() {
     const fragment = document.createDocumentFragment();
 
-    keyLayout.forEach((firstArray) => {
+    if (getLangLocalStorage()) {
+      this.properties.language = getLangLocalStorage();
+    }
+
+    keyLayout.forEach((keysRow) => {
       const ulElement = document.createElement('ul');
 
       ulElement.classList.add('rows');
 
-      firstArray.forEach((element) => {
+      keysRow.forEach((element) => {
         const liElement = document.createElement('li');
 
         if (isSpecial(element)) {
           liElement.classList.add('special');
         }
 
-        if (element.layouts.en === 'space') {
-          liElement.classList.add('Space');
-        }
-
-        if (this.properties.language === 'en') {
-          liElement.textContent = element.layouts.en.lower;
-        } else {
-          liElement.textContent = element.layouts.rus.lower;
-        };
-
+        liElement.textContent = element.layouts[this.properties.language].lower;
         liElement.classList.add(`${element.code}`);
         liElement.dataset.key = element.code;
+        liElement.dataset.value = element.layouts[this.properties.language].lower;
         ulElement.appendChild(liElement);
       });
+
       fragment.appendChild(ulElement);
     });
     return fragment;
@@ -89,8 +90,10 @@ const keyboard = {
 
       if (this.properties.capsLock && !c.isDigit) {
         li.textContent = c.layouts[this.properties.language].upper;
+        li.dataset.value = c.layouts[this.properties.language].upper;
       } else if (!this.properties.capsLock) {
         li.textContent = c.layouts[this.properties.language].lower;
+        li.dataset.value = c.layouts[this.properties.language].lower;
       }
     }
   },
@@ -101,8 +104,10 @@ const keyboard = {
       const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
       if (this.properties.capsLock) {
         li.textContent = c.layouts[this.properties.language].upper;
+        li.dataset.value = c.layouts[this.properties.language].upper;
       } else if (!this.properties.capsLock) {
         li.textContent = c.layouts[this.properties.language].lower;
+        li.dataset.value = c.layouts[this.properties.language].lower;
       }
     }
   },
@@ -128,16 +133,20 @@ const keyboard = {
         li.textContent = a.layouts[this.properties.language].lower;
       }
     }
+
+    setLangLocalStorage(this.properties.language);
   },
 
   handleKeyPress() {
     document.querySelectorAll('.keyboard-container .rows li').forEach((element) => {
       element.addEventListener('click', (event) => {
-        const layout = findLayoutByLi(event.target);
-        if (layout.code === 'ShiftLeft' || layout.code === 'ShiftRight') {
+        let li = event.target;
+        const layout = findLayoutByLi(li);
+        if (layout.isShift) {
           this._toggleShift();
         }
-        this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock, this.properties.language);
+
+        this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, li);
       });
     });
     document.addEventListener('keydown', (event) => {
@@ -164,8 +173,7 @@ const keyboard = {
             this._toggleShift();
           }
           li.classList.add('active');
-          const layout = findLayoutByLi(li);
-          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock, this.properties.language);
+          this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, li);
         }
       });
     });
@@ -187,7 +195,7 @@ const keyboard = {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  keyboard.init();
+  keyboard.render();
   keyboard.keyBehavior();
   keyboard.handleKeyPress();
   keyboard.handleKeyDown();

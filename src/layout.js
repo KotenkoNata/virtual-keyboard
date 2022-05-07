@@ -2,6 +2,7 @@ const keyLayout = [
   [
     {
       code: 'Backquote',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ё',
@@ -15,6 +16,7 @@ const keyLayout = [
     },
     {
       code: 'Digit1',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -29,6 +31,7 @@ const keyLayout = [
     },
     {
       code: 'Digit2',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -37,12 +40,13 @@ const keyLayout = [
         },
         en: {
           lower: '2',
-          upper: '"',
+          upper: '@',
         },
       },
     },
     {
       code: 'Digit3',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -51,12 +55,13 @@ const keyLayout = [
         },
         en: {
           lower: '3',
-          upper: '№',
+          upper: '#',
         },
       },
     },
     {
       code: 'Digit4',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -65,12 +70,13 @@ const keyLayout = [
         },
         en: {
           lower: '4',
-          upper: ';',
+          upper: '$',
         },
       },
     },
     {
       code: 'Digit5',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -85,6 +91,7 @@ const keyLayout = [
     },
     {
       code: 'Digit6',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -93,12 +100,13 @@ const keyLayout = [
         },
         en: {
           lower: '6',
-          upper: ':',
+          upper: '^',
         },
       },
     },
     {
       code: 'Digit7',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -107,12 +115,13 @@ const keyLayout = [
         },
         en: {
           lower: '7',
-          upper: '?',
+          upper: '&',
         },
       },
     },
     {
       code: 'Digit8',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -127,6 +136,7 @@ const keyLayout = [
     },
     {
       code: 'Digit9',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -141,6 +151,7 @@ const keyLayout = [
     },
     {
       code: 'Digit0',
+      cssClasses: [],
       isDigit: true,
       layouts: {
         rus: {
@@ -155,6 +166,7 @@ const keyLayout = [
     },
     {
       code: 'Minus',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '_',
@@ -168,6 +180,7 @@ const keyLayout = [
     },
     {
       code: 'Equal',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '+',
@@ -181,6 +194,7 @@ const keyLayout = [
     },
     {
       code: 'Backspace',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'delete',
@@ -195,6 +209,7 @@ const keyLayout = [
   [
     {
       code: 'Tab',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'tab',
@@ -208,6 +223,7 @@ const keyLayout = [
     },
     {
       code: 'KeyQ',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'й',
@@ -221,6 +237,7 @@ const keyLayout = [
     },
     {
       code: 'KeyW',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ц',
@@ -234,6 +251,7 @@ const keyLayout = [
     },
     {
       code: 'KeyE',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'у',
@@ -247,6 +265,7 @@ const keyLayout = [
     },
     {
       code: 'KeyR',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'к',
@@ -260,6 +279,7 @@ const keyLayout = [
     },
     {
       code: 'KeyT',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'е',
@@ -273,6 +293,7 @@ const keyLayout = [
     },
     {
       code: 'KeyY',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'н',
@@ -286,6 +307,7 @@ const keyLayout = [
     },
     {
       code: 'KeyU',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'г',
@@ -299,6 +321,7 @@ const keyLayout = [
     },
     {
       code: 'KeyI',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ш',
@@ -312,6 +335,7 @@ const keyLayout = [
     },
     {
       code: 'KeyO',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'щ',
@@ -325,6 +349,7 @@ const keyLayout = [
     },
     {
       code: 'KeyP',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'з',
@@ -338,6 +363,7 @@ const keyLayout = [
     },
     {
       code: 'BracketLeft',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'х',
@@ -351,6 +377,7 @@ const keyLayout = [
     },
     {
       code: 'BracketRight',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ъ',
@@ -364,6 +391,7 @@ const keyLayout = [
     },
     {
       code: 'Backslash',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '\\',
@@ -378,6 +406,7 @@ const keyLayout = [
   [
     {
       code: 'CapsLock',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'caps lock',
@@ -391,6 +420,7 @@ const keyLayout = [
     },
     {
       code: 'KeyA',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ф',
@@ -404,6 +434,7 @@ const keyLayout = [
     },
     {
       code: 'KeyS',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ы',
@@ -417,6 +448,7 @@ const keyLayout = [
     },
     {
       code: 'KeyD',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'в',
@@ -430,6 +462,7 @@ const keyLayout = [
     },
     {
       code: 'KeyF',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'а',
@@ -443,6 +476,7 @@ const keyLayout = [
     },
     {
       code: 'KeyG',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'п',
@@ -456,6 +490,7 @@ const keyLayout = [
     },
     {
       code: 'KeyH',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'р',
@@ -469,6 +504,7 @@ const keyLayout = [
     },
     {
       code: 'KeyJ',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'о',
@@ -482,6 +518,7 @@ const keyLayout = [
     },
     {
       code: 'KeyK',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'л',
@@ -495,6 +532,7 @@ const keyLayout = [
     },
     {
       code: 'KeyL',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'д',
@@ -508,6 +546,7 @@ const keyLayout = [
     },
     {
       code: 'Semicolon',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ж',
@@ -521,6 +560,7 @@ const keyLayout = [
     },
     {
       code: 'Quote',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'э',
@@ -534,6 +574,7 @@ const keyLayout = [
     },
     {
       code: 'Enter',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'return',
@@ -548,6 +589,8 @@ const keyLayout = [
   [
     {
       code: 'ShiftLeft',
+      cssClasses: [],
+      isShift: true,
       layouts: {
         rus: {
           lower: 'shift',
@@ -561,6 +604,7 @@ const keyLayout = [
     },
     {
       code: 'KeyZ',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'я',
@@ -574,6 +618,7 @@ const keyLayout = [
     },
     {
       code: 'KeyX',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ч',
@@ -587,6 +632,7 @@ const keyLayout = [
     },
     {
       code: 'KeyC',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'с',
@@ -600,6 +646,7 @@ const keyLayout = [
     },
     {
       code: 'KeyV',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'м',
@@ -613,6 +660,7 @@ const keyLayout = [
     },
     {
       code: 'KeyB',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'и',
@@ -626,6 +674,7 @@ const keyLayout = [
     },
     {
       code: 'KeyN',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'т',
@@ -639,6 +688,7 @@ const keyLayout = [
     },
     {
       code: 'KeyM',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ь',
@@ -652,6 +702,7 @@ const keyLayout = [
     },
     {
       code: 'Comma',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'б',
@@ -665,6 +716,7 @@ const keyLayout = [
     },
     {
       code: 'Period',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: 'ю',
@@ -678,6 +730,7 @@ const keyLayout = [
     },
     {
       code: 'Slash',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '.',
@@ -691,6 +744,8 @@ const keyLayout = [
     },
     {
       code: 'ShiftRight',
+      cssClasses: [],
+      isShift: true,
       layouts: {
         rus: {
           lower: 'shift',
@@ -705,6 +760,7 @@ const keyLayout = [
   [
     {
       code: 'ControlLeft',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '⌃',
@@ -718,6 +774,7 @@ const keyLayout = [
     },
     {
       code: 'AltLeft',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '⌥',
@@ -731,6 +788,7 @@ const keyLayout = [
     },
     {
       code: 'MetaLeft',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '⌘',
@@ -744,6 +802,7 @@ const keyLayout = [
     },
     {
       code: 'Space',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: ' ',
@@ -757,6 +816,7 @@ const keyLayout = [
     },
     {
       code: 'MetaRight',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '⌘',
@@ -770,6 +830,7 @@ const keyLayout = [
     },
     {
       code: 'AltRight',
+      cssClasses: [],
       layouts: {
         rus: {
           lower: '⌥',
@@ -782,4 +843,3 @@ const keyLayout = [
       },
     }],
 ];
-

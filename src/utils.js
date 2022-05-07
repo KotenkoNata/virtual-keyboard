@@ -26,10 +26,6 @@ function isReturn(element) {
   return element.code === 'Enter';
 }
 
-function isShift(element) {
-  return element.code === 'ShiftLeft' || element.code === 'ShiftRight';
-}
-
 function isCapsLock(element) {
   return element.code === 'CapsLock';
 }
@@ -38,14 +34,17 @@ function isDelete(element) {
   return element.code === 'Backspace';
 }
 
-function handleKeyAndTextarea(currentTextValue, keyLayout, isCapsEnabled, lang) {
+function handleKeyAndTextarea(currentTextValue, isCapsEnabled, lang, li) {
+
+  const keyLayout = findLayoutByLi(li);
+
   if (isSpace(keyLayout)) {
     return `${currentTextValue} `;
   }
   if (isCapsLock(keyLayout)) {
     return currentTextValue;
   }
-  if (isShift(keyLayout)) {
+  if (keyLayout.isShift) {
     return currentTextValue;
   }
   if (isCommand(keyLayout)) {
@@ -69,12 +68,7 @@ function handleKeyAndTextarea(currentTextValue, keyLayout, isCapsEnabled, lang) 
     return currentTextValue.substring(0, currentTextValue.length - 1);
   }
 
-  let nextChar = keyLayout.layouts[lang].lower;
-
-  if (isCapsEnabled) {
-    nextChar = nextChar.toUpperCase();
-  }
-  return currentTextValue + nextChar;
+  return currentTextValue + li.dataset.value;
 }
 
 function setLangLocalStorage(lang) {
