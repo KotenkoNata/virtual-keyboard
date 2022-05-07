@@ -62,8 +62,8 @@ const keyboard = {
           liElement.classList.add('special');
         }
 
-        if(element.layouts.en === 'space') {
-          liElement.classList.add('space');
+        if (element.layouts.en === 'space') {
+          liElement.classList.add('Space');
         }
 
         switch (element.layouts.en) {
@@ -75,6 +75,7 @@ const keyboard = {
           //   break;
 
           case 'enter':
+            liElement.dataset.key = element.code;
             // liElement.addEventListener('click', () => {
             //   this.properties.value += '\n';
             // });
@@ -82,6 +83,8 @@ const keyboard = {
             break;
 
           case 'space':
+
+            liElement.dataset.key = element.code;
 
             //
             // liElement.addEventListener('click', () => {
@@ -127,21 +130,37 @@ const keyboard = {
       this._toggleCapsLock();
       capsLockElement.classList.toggle('capsLock-active', this.properties.capsLock);
     });
+
+    // const shiftLeft = document.querySelector('.ShiftLeft');
+    // const shiftRight = document.querySelector('.ShiftRight');
+    // function behaviorShift() {
+    //   this._toggleCapsLock();
+    // }
+    // shiftLeft.addEventListener('keydown', behaviorShift);
   },
 
   handleKeyPress() {
     document.querySelectorAll('.keyboard-container .rows li').forEach((element) => {
       element.addEventListener('click', (event) => {
-        if (!element.classList.contains('special')) {
-          const layout = findLayoutByLi(event.target);
-          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
-        }
+        const layout = findLayoutByLi(event.target);
+
+        // if shift
+
+        this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
       });
     });
     document.addEventListener('keydown', (event) => {
+
+      event.preventDefault();
+
       const array = this.elements.keys;
       array.forEach((key) => {
         if (key.classList.contains(event.code)) {
+
+          if (key.dataset.key === 'ShiftLeft') {
+            this._toggleCapsLock();
+          }
+
           key.classList.add('active');
           const layout = findLayoutByLi(key);
           this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
@@ -151,15 +170,29 @@ const keyboard = {
   },
 
   handleKeyDown() {
-    document.addEventListener('keyup', () => {
+    const self = this;
+    document.addEventListener('keyup', (event) => {
+
+      event.preventDefault();
+
       const array = this.elements.keys;
-      array.forEach((key) => {
-        if (key.classList.contains('active')) {
-          setTimeout(() => {
-            key.classList.remove('active');
-          }, 25);
-        }
-      });
+
+      if (event.key === 'Shift') {
+        self._toggleCapsLock();
+      }
+
+      const keyButton = [...array]
+        .filter((li) => li.dataset.key === event.code)[0];
+
+      keyButton.classList.remove('active');
+
+      // array.forEach((key) => {
+      //   if (key.classList.contains('active')) {
+      //     setTimeout(() => {
+      //       key.classList.remove('active');
+      //     }, 25);
+      //   }
+      // });
     });
   },
 };

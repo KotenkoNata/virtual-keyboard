@@ -34,333 +34,388 @@ const keyLayout = [
         rus: ';',
         en: '4',
       },
-    }, {
+    },
+    {
       code: 'Digit5',
       layouts: {
         rus: '%',
         en: '5',
       },
-    }, {
+    },
+    {
       code: 'Digit6',
       layouts: {
         rus: ':',
         en: '6',
       },
-    }, {
+    },
+    {
       code: 'Digit7',
       layouts: {
         rus: '?',
         en: '7',
       },
-    }, {
+    },
+    {
       code: 'Digit8',
       layouts: {
         rus: '*',
         en: '8',
       },
-    }, {
+    },
+    {
       code: 'Digit9',
       layouts: {
         rus: '(',
         en: '9',
       },
-    }, {
+    },
+    {
       code: 'Digit0',
       layouts: {
         rus: ')',
         en: '0',
       },
-    }, {
+    },
+    {
       code: 'Minus',
       layouts: {
         rus: '_',
         en: '-',
       },
-    }, {
+    },
+    {
       code: 'Equal',
       layouts: {
         rus: '+',
         en: '=',
       },
-    }, {
+    },
+    {
       code: 'Backspace',
       layouts: {
         rus: 'delete',
         en: 'delete',
       },
     }],
-  [{
-    code: 'Tab',
-    layouts: {
-      rus: 'tab',
-      en: 'tab',
+  [
+    {
+      code: 'Tab',
+      layouts: {
+        rus: 'tab',
+        en: 'tab',
+      },
     },
-  }, {
-    code: 'KeyQ',
-    layouts: {
-      rus: 'й',
-      en: 'q',
+    {
+      code: 'KeyQ',
+      layouts: {
+        rus: 'й',
+        en: 'q',
+      },
     },
-  }, {
-    code: 'KeyW',
-    layouts: {
-      rus: 'ц',
-      en: 'w',
+    {
+      code: 'KeyW',
+      layouts: {
+        rus: 'ц',
+        en: 'w',
+      },
     },
-  }, {
-    code: 'KeyE',
-    layouts: {
-      rus: 'у',
-      en: 'e',
+    {
+      code: 'KeyE',
+      layouts: {
+        rus: 'у',
+        en: 'e',
+      },
     },
-  }, {
-    code: 'KeyR',
-    layouts: {
-      rus: 'к',
-      en: 'r',
+    {
+      code: 'KeyR',
+      layouts: {
+        rus: 'к',
+        en: 'r',
+      },
     },
-  }, {
-    code: 'KeyT',
-    layouts: {
-      rus: 'е',
-      en: 't',
+    {
+      code: 'KeyT',
+      layouts: {
+        rus: 'е',
+        en: 't',
+      },
     },
-  }, {
-    code: 'KeyY',
-    layouts: {
-      rus: 'н',
-      en: 'y',
+    {
+      code: 'KeyY',
+      layouts: {
+        rus: 'н',
+        en: 'y',
+      },
     },
-  }, {
-    code: 'KeyU',
-    layouts: {
-      rus: 'г',
-      en: 'u',
+    {
+      code: 'KeyU',
+      layouts: {
+        rus: 'г',
+        en: 'u',
+      },
     },
-  }, {
-    code: 'KeyI',
-    layouts: {
-      rus: 'ш',
-      en: 'i',
+    {
+      code: 'KeyI',
+      layouts: {
+        rus: 'ш',
+        en: 'i',
+      },
     },
-  }, {
-    code: 'KeyO',
-    layouts: {
-      rus: 'щ',
-      en: 'o',
+    {
+      code: 'KeyO',
+      layouts: {
+        rus: 'щ',
+        en: 'o',
+      },
     },
-  }, {
-    code: 'KeyP',
-    layouts: {
-      rus: 'з',
-      en: 'p',
+    {
+      code: 'KeyP',
+      layouts: {
+        rus: 'з',
+        en: 'p',
+      },
     },
-  }, {
-    code: 'BracketLeft',
-    layouts: {
-      rus: 'х',
-      en: '[',
+    {
+      code: 'BracketLeft',
+      layouts: {
+        rus: 'х',
+        en: '[',
+      },
     },
-  }, {
-    code: 'BracketRight',
-    layouts: {
-      rus: 'ъ',
-      en: ']',
+    {
+      code: 'BracketRight',
+      layouts: {
+        rus: 'ъ',
+        en: ']',
+      },
     },
-  }, {
-    code: 'Backslash',
-    layouts: {
-      rus: '\\',
-      en: '\\',
+    {
+      code: 'Backslash',
+      layouts: {
+        rus: '\\',
+        en: '\\',
+      },
+    }],
+  [
+    {
+      code: 'CapsLock',
+      layouts: {
+        rus: 'caps lock',
+        en: 'caps lock',
+      },
     },
-  }],
-  [{
-    code: 'CapsLock',
-    layouts: {
-      rus: 'caps lock',
-      en: 'caps lock',
+    {
+      code: 'KeyA',
+      layouts: {
+        rus: 'ф',
+        en: 'a',
+      },
     },
-  }, {
-    code: 'KeyA',
-    layouts: {
-      rus: 'ф',
-      en: 'a',
+    {
+      code: 'KeyS',
+      layouts: {
+        rus: 'ы',
+        en: 's',
+      },
     },
-  }, {
-    code: 'KeyS',
-    layouts: {
-      rus: 'ы',
-      en: 's',
+    {
+      code: 'KeyD',
+      layouts: {
+        rus: 'в',
+        en: 'd',
+      },
     },
-  }, {
-    code: 'KeyD',
-    layouts: {
-      rus: 'в',
-      en: 'd',
+    {
+      code: 'KeyF',
+      layouts: {
+        rus: 'а',
+        en: 'f',
+      },
     },
-  }, {
-    code: 'KeyF',
-    layouts: {
-      rus: 'а',
-      en: 'f',
+    {
+      code: 'KeyG',
+      layouts: {
+        rus: 'п',
+        en: 'g',
+      },
     },
-  }, {
-    code: 'KeyG',
-    layouts: {
-      rus: 'п',
-      en: 'g',
+    {
+      code: 'KeyH',
+      layouts: {
+        rus: 'р',
+        en: 'h',
+      },
     },
-  }, {
-    code: 'KeyH',
-    layouts: {
-      rus: 'р',
-      en: 'h',
+    {
+      code: 'KeyJ',
+      layouts: {
+        rus: 'о',
+        en: 'j',
+      },
     },
-  }, {
-    code: 'KeyJ',
-    layouts: {
-      rus: 'о',
-      en: 'j',
+    {
+      code: 'KeyK',
+      layouts: {
+        rus: 'л',
+        en: 'k',
+      },
     },
-  }, {
-    code: 'KeyK',
-    layouts: {
-      rus: 'л',
-      en: 'k',
+    {
+      code: 'KeyL',
+      layouts: {
+        rus: 'д',
+        en: 'l',
+      },
     },
-  }, {
-    code: 'KeyL',
-    layouts: {
-      rus: 'д',
-      en: 'l',
+    {
+      code: 'Semicolon',
+      layouts: {
+        rus: 'ж',
+        en: ';',
+      },
     },
-  }, {
-    code: 'Semicolon',
-    layouts: {
-      rus: 'ж',
-      en: ';',
+    {
+      code: 'Quote',
+      layouts: {
+        rus: 'э',
+        en: '\'',
+      },
     },
-  }, {
-    code: 'Quote',
-    layouts: {
-      rus: 'э',
-      en: '\'',
+    {
+      code: 'Enter',
+      layouts: {
+        rus: 'return',
+        en: 'return',
+      },
+    }],
+  [
+    {
+      code: 'ShiftLeft',
+      layouts: {
+        rus: 'shift',
+        en: 'shift',
+      },
     },
-  }, {
-    code: 'Enter',
-    layouts: {
-      rus: 'return',
-      en: 'return',
+    {
+      code: 'KeyZ',
+      layouts: {
+        rus: 'я',
+        en: 'z',
+      },
     },
-  }],
-  [{
-    code: 'ShiftLeft',
-    layouts: {
-      rus: 'shift',
-      en: 'shift',
+    {
+      code: 'KeyX',
+      layouts: {
+        rus: 'ч',
+        en: 'x',
+      },
     },
-  }, {
-    code: 'KeyZ',
-    layouts: {
-      rus: 'я',
-      en: 'z',
+    {
+      code: 'KeyC',
+      layouts: {
+        rus: 'с',
+        en: 'c',
+      },
     },
-  }, {
-    code: 'KeyX',
-    layouts: {
-      rus: 'ч',
-      en: 'x',
+    {
+      code: 'KeyV',
+      layouts: {
+        rus: 'м',
+        en: 'v',
+      },
     },
-  }, {
-    code: 'KeyC',
-    layouts: {
-      rus: 'с',
-      en: 'c',
+    {
+      code: 'KeyB',
+      layouts: {
+        rus: 'и',
+        en: 'b',
+      },
     },
-  }, {
-    code: 'KeyV',
-    layouts: {
-      rus: 'м',
-      en: 'v',
+    {
+      code: 'KeyN',
+      layouts: {
+        rus: 'т',
+        en: 'n',
+      },
     },
-  }, {
-    code: 'KeyB',
-    layouts: {
-      rus: 'и',
-      en: 'b',
+    {
+      code: 'KeyM',
+      layouts: {
+        rus: 'ь',
+        en: 'm',
+      },
     },
-  }, {
-    code: 'KeyN',
-    layouts: {
-      rus: 'т',
-      en: 'n',
+    {
+      code: 'Comma',
+      layouts: {
+        rus: 'б',
+        en: ',',
+      },
     },
-  }, {
-    code: 'KeyM',
-    layouts: {
-      rus: 'ь',
-      en: 'M',
+    {
+      code: 'Period',
+      layouts: {
+        rus: 'ю',
+        en: '.',
+      },
     },
-  }, {
-    code: 'Comma',
-    layouts: {
-      rus: 'б',
-      en: ',',
+    {
+      code: 'Slash',
+      layouts: {
+        rus: '.',
+        en: '/',
+      },
     },
-  }, {
-    code: 'Period',
-    layouts: {
-      rus: 'ю',
-      en: '.',
+    {
+      code: 'ShiftRight',
+      layouts: {
+        rus: 'shift',
+        en: 'shift',
+      },
+    }],
+  [
+    {
+      code: 'ControlLeft',
+      layouts: {
+        rus: '⌃',
+        en: '⌃',
+      },
     },
-  }, {
-    code: 'Slash',
-    layouts: {
-      rus: '.',
-      en: '/',
+    {
+      code: 'AltLeft',
+      layouts: {
+        rus: '⌥',
+        en: '⌥',
+      },
     },
-  }, {
-    code: 'ShiftRight',
-    layouts: {
-      rus: 'shift',
-      en: 'shift',
+    {
+      code: 'MetaLeft',
+      layouts: {
+        rus: '⌘',
+        en: '⌘',
+      },
     },
-  }],
-  [{
-    code: 'ControlLeft',
-    layouts: {
-      rus: '⌃',
-      en: '⌃',
+    {
+      code: 'Space',
+      layouts: {
+        rus: 'space',
+        en: 'space',
+      },
     },
-  }, {
-    code: 'AltLeft',
-    layouts: {
-      rus: '⌥',
-      en: '⌥',
+    {
+      code: 'MetaRight',
+      layouts: {
+        rus: '⌘',
+        en: '⌘',
+      },
     },
-  }, {
-    code: 'MetaLeft',
-    layouts: {
-      rus: '⌘',
-      en: '⌘',
-    },
-  }, {
-    code: 'Space',
-    layouts: {
-      rus: 'space',
-      en: 'space',
-    },
-  }, {
-    code: 'MetaRight',
-    layouts: {
-      rus: '⌘',
-      en: '⌘',
-    },
-  }, {
-    code: 'AltRight',
-    layouts: {
-      rus: '⌥',
-      en: '⌥',
-    },
-  }],
+    {
+      code: 'AltRight',
+      layouts: {
+        rus: '⌥',
+        en: '⌥',
+      },
+    }],
 ];
+
