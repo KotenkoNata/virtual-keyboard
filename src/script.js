@@ -68,9 +68,9 @@ const keyboard = {
         }
 
         if (this.properties.language === 'en') {
-          liElement.textContent = element.layouts.en.toLowerCase();
+          liElement.textContent = element.layouts.en.lower;
         } else {
-          liElement.textContent = element.layouts.rus.toLowerCase();
+          liElement.textContent = element.layouts.rus.lower;
         };
 
         liElement.classList.add(`${element.code}`);
@@ -84,11 +84,11 @@ const keyboard = {
 
   _toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
-    for (const key of this.elements.keys) {
-      if (!key.classList.contains('special')) {
-        key.textContent = this.properties.capsLock ? key.textContent.toUpperCase()
-          : key.textContent.toLowerCase();
-      }
+    for (const li of this.elements.keys) {
+      const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
+      li.textContent = this.properties.capsLock
+        ? c.layouts[this.properties.language].upper
+        : c.layouts[this.properties.language].lower;
     }
   },
 
@@ -109,15 +109,8 @@ const keyboard = {
 
     for (const li of this.elements.keys) {
       if (!li.classList.contains('special')) {
-
-
-        const a = keyLayout.flat().filter((layout) => {
-          return layout.code === li.dataset.key;
-        })[0]
-
-
-        li.textContent = a.layouts[this.properties.language]
-
+        const a = keyLayout.flat().filter((layout) => layout.code === li.dataset.key)[0];
+        li.textContent = a.layouts[this.properties.language].lower;
       }
     }
   },
@@ -126,10 +119,10 @@ const keyboard = {
     document.querySelectorAll('.keyboard-container .rows li').forEach((element) => {
       element.addEventListener('click', (event) => {
         const layout = findLayoutByLi(event.target);
-        if (layout.layouts.en === 'shift') {
+        if (layout.code === 'ShiftLeft' || layout.code === 'ShiftRight') {
           this._toggleCapsLock();
         }
-        this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
+        this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock, this.properties.language);
       });
     });
     document.addEventListener('keydown', (event) => {
@@ -147,10 +140,8 @@ const keyboard = {
 
         if (keyMeta.length === 1 && keyMeta[0].dataset.key === 'ControlLeft') {
           this._toggleLanguage();
-
         }
       }
-
 
       array.forEach((li) => {
         if (li.classList.contains(event.code)) {
@@ -159,7 +150,7 @@ const keyboard = {
           }
           li.classList.add('active');
           const layout = findLayoutByLi(li);
-          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock);
+          this.inputField.value = handleKeyAndTextarea(this.inputField.value, layout, this.properties.capsLock, this.properties.language);
         }
       });
     });
@@ -170,7 +161,7 @@ const keyboard = {
     document.addEventListener('keyup', (event) => {
       event.preventDefault();
       const array = this.elements.keys;
-      if (event.key === 'Shift') {
+      if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
         self._toggleCapsLock();
       }
       const keyButton = [...array]

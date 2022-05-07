@@ -1,8 +1,5 @@
 function isSpecial(element) {
-  return element.layouts.en.length > 1
-    || element.layouts.en === '⌃'
-    || element.layouts.en === '⌥'
-    || element.layouts.en === '⌘';
+  return element.layouts.en.lower.length > 1;
 }
 
 function findLayoutByLi(element) {
@@ -11,37 +8,37 @@ function findLayoutByLi(element) {
 }
 
 function isSpace(element) {
-  return element.layouts.en === 'space';
+  return element.code === 'Space';
 }
 function isControl(element) {
-  return element.layouts.en === '⌃';
+  return element.code === 'ControlLeft' || element.code === 'ControlRight';
 }
 function isOption(element) {
-  return element.layouts.en === '⌥';
+  return element.code === 'AltRight' || element.code === 'AltLeft';
 }
 function isCommand(element) {
-  return element.layouts.en === '⌘';
+  return element.code === 'MetaLeft' || element.code === 'MetaRight';
 }
 function isTab(element) {
-  return element.layouts.en === 'tab';
+  return element.code === 'Tab';
 }
 function isReturn(element) {
-  return element.layouts.en === 'return';
+  return element.code === 'Enter';
 }
 
 function isShift(element) {
-  return element.layouts.en === 'shift';
+  return element.code === 'ShiftLeft' || element.code === 'ShiftRight';
 }
 
 function isCapsLock(element) {
-  return element.layouts.en === 'caps lock';
+  return element.code === 'CapsLock';
 }
 
 function isDelete(element) {
-  return element.layouts.en === 'delete';
+  return element.code === 'Backspace';
 }
 
-function handleKeyAndTextarea(currentTextValue, keyLayout, isCapsEnabled) {
+function handleKeyAndTextarea(currentTextValue, keyLayout, isCapsEnabled, lang) {
   if (isSpace(keyLayout)) {
     return `${currentTextValue} `;
   }
@@ -71,7 +68,9 @@ function handleKeyAndTextarea(currentTextValue, keyLayout, isCapsEnabled) {
   if (isDelete(keyLayout)) {
     return currentTextValue.substring(0, currentTextValue.length - 1);
   }
-  let nextChar = keyLayout.layouts.en;
+
+  let nextChar = keyLayout.layouts[lang].lower;
+
   if (isCapsEnabled) {
     nextChar = nextChar.toUpperCase();
   }
