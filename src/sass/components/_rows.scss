@@ -1,0 +1,90 @@
+.rows{
+  display: flex;
+  margin-bottom: 5px;
+
+  & .special{
+    font-size: 10px;
+    align-items: end;
+  }
+}
+
+.rows li{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+
+  align-items: center;
+
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  border-bottom: 1px solid $dark-gray;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+
+  cursor: pointer;
+  height: 40px;
+  background: $white;
+  margin-right: 5px;
+  transform: translateY(0px) scale(1);
+  transition: all 300ms ease-in-out;
+
+  &:last-of-type{
+    margin-right: 0;
+  }
+
+  &:hover{
+    background-color: $dark;
+    color: white;
+    transition: all 300ms ease-in-out;
+  }
+
+  &.active{
+    background-color: $dark;
+    color: white;
+
+    transition: all 300ms ease-in-out;
+    transform:translateY(2px) scale(0.95);
+  }
+}
+
+.last-row{
+  margin-bottom: 0;
+}
+
+.rows li{
+  font-size: 15px;
+}
+
+.Space{
+  width: 150px;
+}
+
+.caseUp{
+  margin-bottom: 5px;
+}
+
+.CapsLock{
+  position: relative;
+  font-size: 10px;
+
+  &::after{
+    content: '';
+    top: 5px;
+    left: 15px;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: $black;
+    border-radius: 50%;
+    transition: all 200ms ease-in-out;
+  }
+}
+
+.capsLock-active.CapsLock::after{
+  background: rgba(0, 128, 0, 0.6);
+}
+
+
+
+
+
