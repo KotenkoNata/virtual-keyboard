@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const body = document.querySelector('#body');
 
 const keyboard = {
@@ -147,6 +146,12 @@ const keyboard = {
     document.querySelectorAll('.keyboard-container .rows li').forEach((element) => {
       element.addEventListener('click', (event) => {
         const li = event.target;
+        li.classList.add('active');
+
+        setTimeout(() => {
+          li.classList.remove('active');
+        }, 300);
+
         const layout = findLayoutByLi(li);
         if (layout.isShift) {
           this.toggleShift();
@@ -156,6 +161,7 @@ const keyboard = {
         this.inputField.scrollTop = this.inputField.scrollHeight;
       });
     });
+
     document.addEventListener('keydown', (event) => {
       event.preventDefault();
 
@@ -185,7 +191,6 @@ const keyboard = {
       }
 
       keyButton.classList.add('active');
-      console.log("ACTIVE");
       this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, keyButton);
       this.inputField.scrollTop = this.inputField.scrollHeight;
     });
