@@ -136,6 +136,7 @@ const keyboard = {
       if (!li.classList.contains('special')) {
         const a = keyLayout.flat().filter((layout) => layout.code === li.dataset.key)[0];
         li.textContent = a.layouts[this.properties.language].lower;
+        li.dataset.value = a.layouts[this.properties.language].lower;
       }
     }
 
