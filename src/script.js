@@ -185,6 +185,7 @@ const keyboard = {
       }
 
       keyButton.classList.add('active');
+      console.log("ACTIVE");
       this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, keyButton);
       this.inputField.scrollTop = this.inputField.scrollHeight;
     });

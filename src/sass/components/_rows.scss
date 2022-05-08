@@ -25,22 +25,25 @@
   height: 40px;
   background: $white;
   margin-right: 5px;
+  transform: translateY(0px) scale(1);
   transition: all 200ms ease-in-out;
-
-
 
   &:last-of-type{
     margin-right: 0;
   }
 
   &:hover{
-    background-color: $black;
+    background-color: $dark;
     color: white;
+    transition: all 200ms ease-in-out;
   }
 
   &.active{
-    background-color: $black;
+    background-color: $dark;
     color: white;
+
+    transition: all 200ms ease-in-out;
+    transform:translateY(2px) scale(0.95);
   }
 }
 
@@ -56,36 +59,9 @@
   width: 150px;
 }
 
-.arrow-container{
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-
-  margin-left: 5px;
-
-  & li{
-    height: 17.5px;
-    width: 30%;
-  }
-}
-
 .caseUp{
   margin-bottom: 5px;
 }
-
-.arrow{
-  display: flex;
-  width: 100%;
-
-  & li{
-    height: 17.5px;
-    width: 33%;
-  }
-}
-
-
 
 .CapsLock{
   position: relative;
@@ -100,6 +76,7 @@
     height: 6px;
     background: $black;
     border-radius: 50%;
+    transition: all 200ms ease-in-out;
   }
 }
 

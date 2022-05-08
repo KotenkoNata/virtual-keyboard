@@ -69,18 +69,22 @@ a {
   height: 40px;
   background: #fff;
   margin-right: 5px;
+  transform: translateY(0px) scale(1);
   transition: all 200ms ease-in-out;
 }
 .rows li:last-of-type {
   margin-right: 0;
 }
 .rows li:hover {
-  background-color: #212529;
+  background-color: #2e2e2e;
   color: white;
+  transition: all 200ms ease-in-out;
 }
 .rows li.active {
-  background-color: #212529;
+  background-color: #2e2e2e;
   color: white;
+  transition: all 200ms ease-in-out;
+  transform: translateY(2px) scale(0.95);
 }
 
 .last-row {
@@ -95,30 +99,8 @@ a {
   width: 150px;
 }
 
-.arrow-container {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  margin-left: 5px;
-}
-.arrow-container li {
-  height: 17.5px;
-  width: 30%;
-}
-
 .caseUp {
   margin-bottom: 5px;
-}
-
-.arrow {
-  display: flex;
-  width: 100%;
-}
-.arrow li {
-  height: 17.5px;
-  width: 33%;
 }
 
 .CapsLock {
@@ -134,6 +116,7 @@ a {
   height: 6px;
   background: #212529;
   border-radius: 50%;
+  transition: all 200ms ease-in-out;
 }
 
 .capsLock-active.CapsLock::after {
