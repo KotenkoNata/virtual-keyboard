@@ -17,7 +17,6 @@ const keyboard = {
   },
 
   render() {
-    // Create main elements
     this.elements.main = document.createElement('div');
     this.elements.textarea = document.createElement('div');
     this.elements.textarea.insertAdjacentHTML('beforeend', `
@@ -27,7 +26,6 @@ const keyboard = {
     `);
     this.elements.keysContainer = document.createElement('div');
 
-    // Setup main elements
     this.elements.main.appendChild(this.elements.textarea);
     this.elements.textarea.appendChild(this.elements.keysContainer);
     this.elements.keysContainer.appendChild(this.renderKeys());
@@ -38,7 +36,6 @@ const keyboard = {
 
     this.elements.keys = this.elements.keysContainer.querySelectorAll('li');
 
-    // Add to DOM
     this.elements.main.insertAdjacentHTML('afterbegin', '<h1>Virtual keyboard</h1>');
     document.body.appendChild(this.elements.main);
     body.insertAdjacentHTML('beforeend', `
@@ -48,7 +45,7 @@ const keyboard = {
         </div>
     `);
 
-    this.inputField = document.querySelectorAll('.input')[0];
+    this.inputField = document.querySelector('.input');
   },
 
   renderKeys() {
@@ -84,7 +81,8 @@ const keyboard = {
 
   toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
-    for (const li of this.elements.keys) {
+    for (let i = 0; i < this.elements.keys.length; i += 1) {
+      const li = this.elements.keys[i];
       const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
 
       if (this.properties.capsLock && !c.isDigit) {
@@ -105,7 +103,8 @@ const keyboard = {
       capsLockElement.classList.toggle('capsLock-active', this.properties.capsLock);
     }
 
-    for (const li of this.elements.keys) {
+    for (let i = 0; i < this.elements.keys.length; i += 1) {
+      const li = this.elements.keys[i];
       const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
       if (this.properties.capsLock) {
         li.textContent = c.layouts[this.properties.language].upper;
@@ -132,7 +131,8 @@ const keyboard = {
       this.properties.language = 'en';
     }
 
-    for (const li of this.elements.keys) {
+    for (let i = 0; i < this.elements.keys.length; i += 1) {
+      const li = this.elements.keys[i];
       if (!li.classList.contains('special')) {
         const a = keyLayout.flat().filter((layout) => layout.code === li.dataset.key)[0];
         li.textContent = a.layouts[this.properties.language].lower;
