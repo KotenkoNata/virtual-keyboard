@@ -10,18 +10,23 @@ function findLayoutByLi(element) {
 function isSpace(element) {
   return element.code === 'Space';
 }
+
 function isControl(element) {
   return element.code === 'ControlLeft' || element.code === 'ControlRight';
 }
+
 function isOption(element) {
   return element.code === 'AltRight' || element.code === 'AltLeft';
 }
+
 function isCommand(element) {
   return element.code === 'MetaLeft' || element.code === 'MetaRight';
 }
+
 function isTab(element) {
   return element.code === 'Tab';
 }
+
 function isReturn(element) {
   return element.code === 'Enter';
 }
@@ -35,7 +40,6 @@ function isDelete(element) {
 }
 
 function handleKeyAndTextarea(currentTextValue, isCapsEnabled, lang, li) {
-
   const keyLayout = findLayoutByLi(li);
 
   if (isSpace(keyLayout)) {

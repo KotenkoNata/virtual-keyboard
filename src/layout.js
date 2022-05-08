@@ -710,7 +710,7 @@ const keyLayout = [
         },
         en: {
           lower: ',',
-          upper: ',',
+          upper: '<',
         },
       },
     },
@@ -724,7 +724,7 @@ const keyLayout = [
         },
         en: {
           lower: '.',
-          upper: '.',
+          upper: '>',
         },
       },
     },
@@ -738,7 +738,7 @@ const keyLayout = [
         },
         en: {
           lower: '/',
-          upper: '/',
+          upper: '?',
         },
       },
     },

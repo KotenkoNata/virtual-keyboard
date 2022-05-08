@@ -45,7 +45,7 @@ const keyboard = {
     body.insertAdjacentHTML('beforeend', `
         <div class="description">
             <p>Keyboard was created for macOS</p>
-            <p>Switch between languages: command (⌘) + space</p>
+            <p>Switch between languages: control (⌃) + space</p>
         </div>
     `);
 
@@ -83,7 +83,7 @@ const keyboard = {
     return fragment;
   },
 
-  _toggleCapsLock() {
+  toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
     for (const li of this.elements.keys) {
       const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
@@ -98,8 +98,14 @@ const keyboard = {
     }
   },
 
-  _toggleShift() {
+  toggleShift() {
+    const capsLockElement = document.querySelector('.CapsLock');
     this.properties.capsLock = !this.properties.capsLock;
+
+    if (capsLockElement.classList.contains('capsLock-active')) {
+      capsLockElement.classList.toggle('capsLock-active', this.properties.capsLock);
+    }
+
     for (const li of this.elements.keys) {
       const c = keyLayout.flat().filter((l) => l.code === li.dataset.key)[0];
       if (this.properties.capsLock) {
@@ -112,15 +118,15 @@ const keyboard = {
     }
   },
 
-  keyBehavior() {
+  capsClickBehavior() {
     const capsLockElement = document.querySelector('.CapsLock');
     capsLockElement.addEventListener('click', () => {
-      this._toggleCapsLock();
+      this.toggleCapsLock();
       capsLockElement.classList.toggle('capsLock-active', this.properties.capsLock);
     });
   },
 
-  _toggleLanguage() {
+  toggleLanguage() {
     if (this.properties.language === 'en') {
       this.properties.language = 'rus';
     } else {
@@ -140,55 +146,71 @@ const keyboard = {
   handleKeyPress() {
     document.querySelectorAll('.keyboard-container .rows li').forEach((element) => {
       element.addEventListener('click', (event) => {
-        let li = event.target;
+        const li = event.target;
         const layout = findLayoutByLi(li);
         if (layout.isShift) {
-          this._toggleShift();
+          this.toggleShift();
         }
 
         this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, li);
+        this.inputField.scrollTop = this.inputField.scrollHeight;
       });
     });
     document.addEventListener('keydown', (event) => {
-
       event.preventDefault();
 
       const array = this.elements.keys;
 
-
       const keyButton = [...array].filter((li) => li.dataset.key === event.code)[0];
+      if (!keyButton) {
+        return;
+      }
+
+      if (keyButton.dataset.key === 'CapsLock') {
+        this.toggleCapsLock();
+        const capsLockElement = document.querySelector('.CapsLock');
+        capsLockElement.classList.toggle('capsLock-active', this.properties.capsLock);
+      }
 
       if (keyButton.dataset.key === 'Space') {
-
         const keyMeta = [...array].filter((li) => li.classList.contains('active'));
 
         if (keyMeta.length === 1 && keyMeta[0].dataset.key === 'ControlLeft') {
-          this._toggleLanguage();
+          this.toggleLanguage();
         }
       }
 
-      array.forEach((li) => {
-        if (li.classList.contains(event.code)) {
-          if (li.dataset.key === 'ShiftLeft' || li.dataset.key === 'ShiftRight') {
-            this._toggleShift();
-          }
-          li.classList.add('active');
-          this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, li);
-        }
-      });
+      if (keyButton.dataset.key === 'ShiftLeft' || keyButton.dataset.key === 'ShiftRight') {
+        this.toggleShift();
+      }
+
+      keyButton.classList.add('active');
+      this.inputField.value = handleKeyAndTextarea(this.inputField.value, this.properties.capsLock, this.properties.language, keyButton);
+      this.inputField.scrollTop = this.inputField.scrollHeight;
     });
   },
 
-  handleKeyDown() {
+  handleKeyUp() {
     const self = this;
+
     document.addEventListener('keyup', (event) => {
       event.preventDefault();
       const array = this.elements.keys;
-      if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-        self._toggleShift();
+      const keyButton = [...array].filter((li) => li.dataset.key === event.code)[0];
+      if (!keyButton) {
+        return;
       }
-      const keyButton = [...array]
-        .filter((li) => li.dataset.key === event.code)[0];
+
+      if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+        self.toggleShift();
+      }
+
+      if (event.code === 'CapsLock') {
+        self.toggleCapsLock();
+        const capsLockElement = document.querySelector('.CapsLock');
+        capsLockElement.classList.toggle('capsLock-active', this.properties.capsLock);
+      }
+
       keyButton.classList.remove('active');
     });
   },
@@ -196,7 +218,7 @@ const keyboard = {
 
 window.addEventListener('DOMContentLoaded', () => {
   keyboard.render();
-  keyboard.keyBehavior();
+  keyboard.capsClickBehavior();
   keyboard.handleKeyPress();
-  keyboard.handleKeyDown();
+  keyboard.handleKeyUp();
 });
